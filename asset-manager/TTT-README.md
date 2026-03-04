@@ -125,3 +125,22 @@ mvn -version (应显示为 3.6.x 或更高)
 
 ![Java环境升级完成](doc-media/ttt-upgrade-complete.png)
 
+✅ 第五阶段：定制化评估报告
+App mod应用评估报告的数据文件默认保存在./.github/appmod/appcat目录下：
+
+![报告位置](doc-media/ttt-report-location.png)
+
+可以基于默认的报告数据进行自定义生成新的报告，用于向客户进行汇报。在repo中已经存在报告自定义的Prompt文件和示例自定义生成的报告文件：
+
+![自定义报告prompt](doc-media/ttt-report-prompt.png)
+
+将评估生成的报告数据文件report.json和result.json以及报告自定义prompt文件report-prompt-sample.md文件加到copilot chat对话上下文中并输入相应指令：
+
+![自定义报告指令](doc-media/ttt-customize-report-chat.png)
+
+![自定义报告生成](doc-media/ttt-customize-report-result.png)
+
+
+生成报告示例如下：
+
+![自定义报告示例](doc-media/ttt-customized-report-final.png)
