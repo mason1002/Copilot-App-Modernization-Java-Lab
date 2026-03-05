@@ -185,45 +185,54 @@
 ---
 
 - **Step 3: Upgrade to Spring Boot 3.2.x + Jakarta Migration**
-  - **Status**: ⏳ In Progress
+  - **Status**: ✅ Completed
   - **Changes Made**:
+    - spring-boot-starter-parent 2.7.18→3.2.3, java.version 8→17
+    - javax.persistence.* → jakarta.persistence.* (ImageMetadata entities)
+    - javax.annotation.* → jakarta.annotation.* (PostConstruct init methods)
+    - javax.servlet.* → jakarta.servlet.* (WebMvcConfig)
+    - WebMvcConfigurerAdapter → WebMvcConfigurer, HandlerInterceptorAdapter → HandlerInterceptor
   - **Review Code Changes**:
-    - Sufficiency: 
-    - Necessity: 
-      - Functional Behavior: 
-      - Security Controls: 
+    - Sufficiency: ✅ All required changes present
+    - Necessity: ✅ All changes necessary
+      - Functional Behavior: ✅ Preserved - all business logic and API contracts unchanged
+      - Security Controls: ✅ Preserved - no authentication, authorization, or security changes
   - **Verification**:
-    - Command: 
-    - JDK: 
-    - Build tool: 
-    - Result: 
-    - Notes: 
+    - Command: `JAVA_HOME=/home/vscode/.jdk/jdk-17.0.16 ./mvnw clean test-compile && ./mvnw test`
+    - JDK: /home/vscode/.jdk/jdk-17.0.16 (Java 17.0.16)
+    - Build tool: ./mvnw (Maven Wrapper)
+    - Result: ✅ Compilation SUCCESS | ✅ Tests: 4/4 passed (100% pass rate)
+    - Notes: All tests passing after Spring Boot 3 migration
+  - **Deferred Work**: None
+  - **Commit**: 32f390f - Step 3: Upgrade to Spring Boot 3.2.x + Jakarta Migration - Compile: SUCCESS | Tests: 4/4 passed 
   - **Deferred Work**: 
   - **Commit**: 
 
 ---
 
 - **Step 4: Update Java Source/Target to 17**
-  - **Status**: 🔘 Not Started
+  - **Status**: ✅ Completed
   - **Changes Made**:
+    - No changes required - java.version=17 was already configured in Step 3
+    - Spring Boot 3.2.3 parent automatically configures maven-compiler-plugin with source/target=17
   - **Review Code Changes**:
-    - Sufficiency: 
-    - Necessity: 
-      - Functional Behavior: 
-      - Security Controls: 
+    - Sufficiency: ✅ All required changes present (java.version=17 in root pom.xml)
+    - Necessity: ✅ All changes necessary (no manual compiler plugin config needed)
+      - Functional Behavior: ✅ Preserved (configuration only, no code changes)
+      - Security Controls: ✅ Preserved (configuration only, no code changes)
   - **Verification**:
-    - Command: 
-    - JDK: 
-    - Build tool: 
-    - Result: 
-    - Notes: 
-  - **Deferred Work**: 
-  - **Commit**: 
+    - Command: `JAVA_HOME=/home/vscode/.jdk/jdk-17.0.16 ./mvnw clean test-compile`
+    - JDK: /home/vscode/.jdk/jdk-17.0.16 (Java 17.0.16)
+    - Build tool: ./mvnw (Maven Wrapper)
+    - Result: ✅ Compilation SUCCESS - Both modules compiled with "javac [debug release 17]"
+    - Notes: Maven compiler automatically uses release 17 based on java.version property
+  - **Deferred Work**: None
+  - **Commit**: N/A (configuration already completed in Step 3)
 
 ---
 
 - **Step 5: Upgrade to Java 21**
-  - **Status**: 🔘 Not Started
+  - **Status**: ⏳ In Progress
   - **Changes Made**:
   - **Review Code Changes**:
     - Sufficiency: 
