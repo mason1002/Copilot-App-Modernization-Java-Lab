@@ -42,9 +42,9 @@ Dev Container Configuration: 务必选择 Java App Modernization Lab。
 
 Region: 选择距离你最近的区域（如 Southeast Asia 或 East US）。
 
-Machine Type: 选择2-core
+Machine Type: 选择4-core
 
-![创建Codespaces](doc-media/ttt-create-codespaces.png)
+![创建Codespaces](doc-media/ttt-create-codespaces-new.png)
 
 点击 Create codespace。
 
@@ -102,18 +102,19 @@ mvn -version (应显示为 3.6.x 或更高)
 🤖 第五阶段：开始应用现代化 (AI 介入)
 现在，你已经准备好使用 GitHub Copilot App Mod 进行代码改造了！
 
-1. 点击左侧栏Github Copilot App Moddernization图标，点击Start Assessment启动对代码库的评估
+1. 点击左侧栏Github Copilot App Moddernization图标，点击Start Assessment，选择“Custom Assessment”。在Custom Assessment选项卡中勾选"Security", "Issues, Technologies & Dependencies" 和 "Enable Containerization"。点击"Run Assessment"启动评估
 
-![点击Assessment](doc-media/ttt-start-assessment.png)
+![点击Assessment](doc-media/ttt-start-assessment-new.png)
+
+![定制AssessmentAssessment](doc-media/ttt-start-assessment-custom.png)
 
 2. 查看评估过程
 
-![评估过程](doc-media/ttt-assessment-progress.png)
+![评估过程](doc-media/ttt-assessment-progress-new.png)
 
-3. 大约5分钟后，查看评估结果
+3. 大约8分钟后，查看评估结果
 
-![查看评估结果](doc-media/ttt-assessment-result.png)
-
+![查看评估结果](doc-media/ttt-assessment-result-new.png)
 
 4. 升级Java Runtime & Framework （耗时约10-15分钟）
 
@@ -128,13 +129,13 @@ mvn -version (应显示为 3.6.x 或更高)
 ✅ 第五阶段：定制化评估报告
 App mod应用评估报告的数据文件默认保存在./.github/appmod/appcat目录下：
 
-![报告位置](doc-media/ttt-report-location.png)
+![报告位置](doc-media/ttt-report-location-new.png)
 
 可以基于默认的报告数据进行自定义生成新的报告，用于向客户进行汇报。在repo中已经存在报告自定义的Prompt文件和示例自定义生成的报告文件：
 
 ![自定义报告prompt](doc-media/ttt-report-prompt.png)
 
-将评估生成的报告数据文件report.json和result.json以及报告自定义prompt文件report-prompt-sample.md文件加到copilot chat对话上下文中并输入相应指令：
+将评估生成的报告数据文件report.json和result.json以及报告自定义prompt文件report-prompt-sample.md文件加到copilot chat对话上下文中并输入相应指令：“根据report-prompt-sample.md的要求，以report-sample-new.html为模板，生成报告名称为report.html”
 
 ![自定义报告指令](doc-media/ttt-customize-report-chat.png)
 
